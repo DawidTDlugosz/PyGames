@@ -1,6 +1,57 @@
 import turtle
 
 
+class Paddle:
+    def __init__(self, player):
+        self.paddle = turtle.Turtle()
+        self.paddle.speed(0)
+        self.paddle.shape("square")
+        self.paddle.color("white")
+        self.paddle.shapesize(stretch_wid=5, stretch_len=1)
+        self.paddle.penup()
+
+        # this section need to be improved
+        if player is "1":
+            paddle_a.goto(-350, 0)
+        elif player is "2":
+            paddle_a.goto(350, 0)
+        
+    # Paddle movemnt
+    def paddle_up(self):
+        y = self.paddle.ycor()
+        y += 20
+        self.paddle.sety(y)
+
+
+    def paddle_down(self):
+        y = self.paddle.ycor()
+        y -= 20
+        self.paddle.sety(y)
+
+class ball:
+    def __init__(self):
+        self.ball = turtle.Turtle()
+        self.ball.speed(0)
+        self.ball.shape("square")
+        self.ball.color("white")
+        self.ball.penup()
+        self.ball.goto(0, 0)
+        self.ball.dx = 0.08
+        self.ball.dy = 0.08
+
+
+class Interface:
+    def __init__(self):
+        self.win = turtle.Screen()
+        self.win.title("Pong Game")
+        self.win.bgcolor("black")
+        self.win.setup(width=800, height=600)
+        self.win.tracer(0)  # it stops window from being updated
+
+
+
+# -------------------------------------------------
+
 win = turtle.Screen()
 win.title("Pong Game")
 win.bgcolor("black")
